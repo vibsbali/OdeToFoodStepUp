@@ -15,9 +15,9 @@ namespace OdeToFoodStepUp
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //var builder = new ConfigurationBuilder()
-            //    .AddJsonFile("appSettings.json");
-            //Configuration = builder.Build();
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
 
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
@@ -27,6 +27,9 @@ namespace OdeToFoodStepUp
         public void Configure(IApplicationBuilder app, IGreeter greeter)
         {
             app.UseIISPlatformHandler();
+
+            app.UseRuntimeInfoPage();
+            app.UseDeveloperExceptionPage();
 
             app.Run(async (context) =>
             {
