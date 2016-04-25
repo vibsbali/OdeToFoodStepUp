@@ -19,6 +19,7 @@ namespace OdeToFoodStepUp
                 .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
 
+            services.AddMvc();
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
         }
@@ -28,7 +29,7 @@ namespace OdeToFoodStepUp
                                 IHostingEnvironment environment, 
                                 IGreeter greeter)
         {
-            app.UseIISPlatformHandler();
+            //app.UseIISPlatformHandler();
 
             if (environment.IsDevelopment())
             {
@@ -37,8 +38,10 @@ namespace OdeToFoodStepUp
             }
             
             //app.UseDefaultFiles();
-            //app.UseStaticFiles();
-            app.UseFileServer();
+            app.UseStaticFiles();
+            //app.UseFileServer();
+
+            app.UseMvcWithDefaultRoute();
 
             app.Run(async (context) =>
             {
