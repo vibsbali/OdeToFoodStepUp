@@ -36,6 +36,10 @@ namespace OdeToFoodStepUp
                 app.UseDeveloperExceptionPage();
             }
             
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+            app.UseFileServer();
+
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetGreeting();
