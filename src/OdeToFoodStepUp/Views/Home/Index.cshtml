@@ -1,5 +1,4 @@
-﻿@using OdeToFoodStepUp.Entities
-@model OdeToFoodStepUp.Entities.Restaurant
+﻿@model IEnumerable<OdeToFoodStepUp.Entities.Restaurant>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +6,14 @@
 </head>
 
 <body>
-<h1>Welcome!</h1>
+    <h1>Welcome!</h1>
 <div>
-    @Model.Name
+    <ul>
+        @foreach (var restuarant in Model)
+        {
+            <li>@restuarant.Id @restuarant.Name</li>
+        }
+    </ul>
 </div>
 </body>
 </html>
