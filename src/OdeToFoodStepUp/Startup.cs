@@ -41,7 +41,9 @@ namespace OdeToFoodStepUp
             app.UseStaticFiles();
             //app.UseFileServer();
 
-            app.UseMvcWithDefaultRoute();
+            
+            app.UseMvc(routes => 
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"));
 
             app.Run(async (context) =>
             {
