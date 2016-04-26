@@ -54,7 +54,7 @@ namespace OdeToFoodStepUp.Controllers
                     Cuisine = model.Cuisine
                 };
                 restaurantData.Add(restaurant);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new {id = restaurant.Id});
             }
 
             return View(model);
