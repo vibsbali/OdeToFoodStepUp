@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using OdeToFoodStepUp.Entities;
 
-namespace OdeToFoodStepUp.Entities
+namespace OdeToFoodStepUp.Models
 {
-    public class Restaurant
+    public class RestaurantEditViewModel
     {
-        public int Id { get; set; }
-
         [Required]
         public string Name { get; set; }
+
         [Display(Name = "Cuisine Type")]
         public CuisineType Cuisine { get; set; }
     }

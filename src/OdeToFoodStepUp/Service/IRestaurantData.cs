@@ -9,5 +9,8 @@ namespace OdeToFoodStepUp.Service
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
+        void Add(Restaurant restaurant);
     }
+
+   
 }
