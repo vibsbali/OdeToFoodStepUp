@@ -1,0 +1,22 @@
+﻿@model OdeToFoodStepUp.Entities.Restaurant
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Name</title>
+</head>
+
+<body>
+@if (Model != null)
+{
+    <h1>@Model.Name</h1>
+}
+else
+{
+    <h1>Incorrect Id</h1>
+}
+<div>
+    @Html.ActionLink("Go To Index", "Index")
+</div>
+
+</body>
+</html>
