@@ -9,6 +9,7 @@ namespace OdeToFoodStepUp.Controllers
     public class AboutController : Controller
     {
         [Route("")]
+        [Route("phone")]
         public string Phone()
         {
             return "+1 555-555-5555";
