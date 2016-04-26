@@ -1,4 +1,4 @@
-﻿namespace OdeToFoodStepUp.Models
+﻿namespace OdeToFoodStepUp.Entities
 {
     public class Restaurant
     {

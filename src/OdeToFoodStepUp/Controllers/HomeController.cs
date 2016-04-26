@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc;
-using OdeToFoodStepUp.Models;
+using OdeToFoodStepUp.Entities;
 
 namespace OdeToFoodStepUp.Controllers
 {
@@ -14,7 +14,7 @@ namespace OdeToFoodStepUp.Controllers
                 Name = "Sabatino's"
             };
 
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
