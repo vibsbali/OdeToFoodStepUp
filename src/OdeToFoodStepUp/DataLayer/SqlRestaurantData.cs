@@ -31,5 +31,10 @@ namespace OdeToFoodStepUp.DataLayer
             context.Add(restaurant);
             context.SaveChanges();
         }
+
+        public void Commit()
+        {
+            context.SaveChanges();
+        }
     }
 }

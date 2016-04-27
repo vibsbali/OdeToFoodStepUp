@@ -30,5 +30,10 @@ namespace OdeToFoodStepUp.Service
             restaurant.Id = id;
             Restaurants.Add(restaurant);
         }
+
+        public void Commit()
+        {
+           
+        }
     }
 }

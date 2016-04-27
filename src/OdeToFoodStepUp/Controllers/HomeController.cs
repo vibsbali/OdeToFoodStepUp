@@ -59,5 +59,32 @@ namespace OdeToFoodStepUp.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = restaurantData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, RestaurantEditViewModel model)
+        {
+            var restaurant = restaurantData.Get(id);
+            if (ModelState.IsValid && restaurant != null)
+            {
+                restaurant.Name = model.Name;
+                restaurant.Cuisine = model.Cuisine;
+                restaurantData.Commit();
+                return RedirectToAction("Details", new { id = restaurant.Id });
+            }
+
+            return View(restaurantData.Get(id));
+        }
+
     }
 }

@@ -11,5 +11,7 @@ namespace OdeToFoodStepUp.Entities
         public string Name { get; set; }
         [Display(Name = "Cuisine Type")]
         public CuisineType Cuisine { get; set; }
+
+       
     }
 }

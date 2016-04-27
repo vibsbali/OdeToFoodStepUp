@@ -10,9 +10,17 @@
     <ul>
         @foreach (var restuarant in Model.Restaurants)
         {
-            <li>@restuarant.Id @restuarant.Name @Html.ActionLink("Details", "Details", new {id = restuarant.Id})</li>
+            <li>
+                @restuarant.Id @restuarant.Name
+                <a asp-action="Details" asp-route-id="@restuarant.Id">Details</a>
+                <a asp-action="Edit" asp-route-id="@restuarant.Id">Edit</a>
+            </li>
         }
     </ul>
+</div> 
+
+<div>
+    <a asp-controller="Home" asp-action="Create">Create a new restaurant</a>
 </div>
 
 @section footer {
