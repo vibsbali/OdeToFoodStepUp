@@ -10,11 +10,7 @@
     <ul>
         @foreach (var restuarant in Model.Restaurants)
         {
-            <li>
-                @restuarant.Id @restuarant.Name
-                <a asp-action="Details" asp-route-id="@restuarant.Id">Details</a>
-                <a asp-action="Edit" asp-route-id="@restuarant.Id">Edit</a>
-            </li>
+           @Html.Partial("_Summary", restuarant);
         }
     </ul>
 </div> 
