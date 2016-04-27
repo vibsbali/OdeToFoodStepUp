@@ -5,31 +5,45 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    @if (User.IsSignedIn())
-    {
-
-        <div>
-            <span>@User.GetUserName()</span>
-            <form method="post" asp-controller="Account" asp-action="Logout">
-                <input type="submit" value="Logout"/>
-            </form>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">Ode To Food</a>
+            </div>
+            <div class="navbar navbar-nav navbar-right">
+                @if (User.IsSignedIn())
+            {
+                    <div>
+                        <span>@User.GetUserName()</span>
+                        <form method="post" asp-controller="Account" asp-action="Logout" class="navbar-form">
+                            <input type="submit" value="Logout" class="btn btn-danger" />
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <a class="btn btn-default btn-xs navbar-btn" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="btn btn-default btn-xs navbar-btn" asp-controller="Account" asp-action="Register">Register</a>
+                }
+            </div>
         </div>
-    }
-    else
-    {
-        <a asp-controller="Account" asp-action="Login">Login</a>
-        <a asp-controller="Account" asp-action="Register">Register</a>
-    }
-</div>
-<div>
-    @RenderBody()
-</div>
-<footer>
-    @RenderSection("footer", false)
-    @Component.Invoke("Greeting")
-</footer>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        @RenderSection("footer", false)
+        @Component.Invoke("Greeting")
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
