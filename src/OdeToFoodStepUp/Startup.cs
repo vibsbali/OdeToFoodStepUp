@@ -2,10 +2,12 @@
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OdeToFoodStepUp.DataLayer;
+using OdeToFoodStepUp.Entities;
 using OdeToFoodStepUp.Service;
 
 namespace OdeToFoodStepUp
@@ -29,6 +31,9 @@ namespace OdeToFoodStepUp
                 .AddDbContext<OdeToFoodDbContext>(options => 
                 options.UseSqlServer(Configuration["database:connection"]));
 
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<OdeToFoodDbContext>();
+
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
@@ -51,6 +56,8 @@ namespace OdeToFoodStepUp
             app.UseStaticFiles();
             //app.UseFileServer();
 
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"));
