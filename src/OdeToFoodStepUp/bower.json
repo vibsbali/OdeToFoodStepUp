@@ -1,0 +1,7 @@
+{
+  "name": "odetofood",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}
