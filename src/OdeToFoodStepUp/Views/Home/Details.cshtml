@@ -1,12 +1,6 @@
-﻿@using System.Security.Cryptography
+﻿
 @model OdeToFoodStepUp.Entities.Restaurant
-<!DOCTYPE html>
-<html>
-<head>
-    <title>@Model.Name</title>
-</head>
 
-<body>
 @if (Model != null)
 {
     <h1>@Model.Name</h1>
@@ -23,5 +17,3 @@ else
     @Html.ActionLink("Go To Index", "Index")
 </div>
 
-</body>
-</html>

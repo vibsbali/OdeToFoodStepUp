@@ -1,20 +1,20 @@
 ﻿@model OdeToFoodStepUp.Models.HomePageViewModel
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
 
-<body>
+@{
+    ViewBag.Title = "Home!";
+}
+
 <h1>Welcome!</h1>
-    <h3>Model.CurrentGreeting</h3>
+   
 <div>
     <ul>
         @foreach (var restuarant in Model.Restaurants)
         {
-            <li>@restuarant.Id @restuarant.Name @Html.ActionLink("Details","Details", new {id = restuarant.Id})</li>
+            <li>@restuarant.Id @restuarant.Name @Html.ActionLink("Details", "Details", new {id = restuarant.Id})</li>
         }
     </ul>
 </div>
-</body>
-</html>
+
+@section footer {
+    <h3>@Model.CurrentGreeting</h3>
+}
