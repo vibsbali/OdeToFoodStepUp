@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNet.Authorization;
+using Microsoft.AspNet.Mvc;
 using OdeToFoodStepUp.Entities;
 using OdeToFoodStepUp.Models;
 using OdeToFoodStepUp.Service;
 
 namespace OdeToFoodStepUp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IRestaurantData restaurantData;
@@ -17,6 +19,7 @@ namespace OdeToFoodStepUp.Controllers
         }
 
         // GET: /<controller>/
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomePageViewModel
